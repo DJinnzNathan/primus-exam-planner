@@ -1,1 +1,113 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+// How to theme Angular Material? https://github.com/angular/components/blob/main/guides/theming.md
+
+$primus-primary: (
+  50: #fefce7,
+  100: #fcf6c4,
+  200: #faef9d,
+  300: #f8e977,
+  400: #f7e45a,
+  500: #f4df3f,
+  600: #f3ce3b,
+  700: #f0b734,
+  800: #eda02d,
+  900: #e77921,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$primus-accent: (
+  50: #ffebed,
+  100: #ffccd0,
+  200: #ef9897,
+  300: #e5706f,
+  400: #ee4f4b,
+  500: #f33f2f,
+  600: #e4342f,
+  700: #d22a29,
+  800: #c52222,
+  900: #b61415,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$primus-exam-planner-primary: mat.define-palette($primus-primary, 800);
+$primus-exam-planner-accent: mat.define-palette($primus-accent, 800);
+
+// The warn palette is optional (defaults to red).
+$primus-exam-planner-warn: mat.define-palette(mat.$red-palette);
+
+// Typography
+// $primus-font-family: mat.define-typography-config(
+//   $fontFamily: 'Lato, sans-serif',
+// );
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$primus-exam-planner-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primus-exam-planner-primary,
+      accent: $primus-exam-planner-accent,
+      warn: $primus-exam-planner-warn,
+    ),
+    // typography: $primus-font-family,
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($primus-exam-planner-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Lato", "Helvetica Neue", sans-serif;
+}
+::selection {
+  background: #c52222;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+// button.mat-button-base {
+//   border-radius: 20px;
+// }
