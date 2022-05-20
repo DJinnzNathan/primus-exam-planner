@@ -1,34 +1,41 @@
 footer {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  font-size: 12px;
+
   .footer-body {
     color: #7a869a;
-    font-size: 12px;
     line-height: 1.66666667;
     margin: 20px 0;
     padding: 0 10px 21px;
     min-height: 44px;
     text-align: center;
-  }
-  .footer-body > ul > li {
-    display: inline-block;
-    font-size: 12px;
-    line-height: 1.66666667;
-    padding: 0;
-    white-space: nowrap;
-  }
-}
-#footer-logo a {
-  background: url(../../../assets/logo/primus.svg) no-repeat;
-  bottom: no-repeat;
-  background-size: 127px 26px;
-}
 
-footer .footer-body > ul > li:after {
-  content: "\B7";
-  margin-left: 10px;
-  speak: none;
-  margin-right: 10px;
+    > ul > li {
+      display: inline-block;
+      line-height: 1.66666667;
+      padding: 0;
+      white-space: nowrap;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      :after {
+        content: "\B7";
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+    .footer-logo {
+      size: 50%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
