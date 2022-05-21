@@ -1,0 +1,22 @@
+<mat-grid-list cols="3" rowHeight="2:1">
+    <ng-container *ngFor="let exam of exams">
+        <mat-grid-tile>
+            <mat-card>
+                <mat-card-title> {{printDateInfo(exam.examDate)}} </mat-card-title>
+                <mat-card-subtitle>B1, B2, C1, C1 HS</mat-card-subtitle>
+                <mat-card-content>
+                    <p>Insgesamt <strong class="primary">24</strong> Teilnehmer in der Gruppe</p>
+                    <p>Example</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-raised-button color="accent" style="margin-right: 1.5rem;">Bearbeiten</button>
+                </mat-card-actions>
+                <mat-card-footer class="print-info">
+                    <span style="font-size: 0.7rem;">Aktualisiert: {{printDateInfo(exam.updatedAt, true)}}</span>
+                </mat-card-footer>
+            </mat-card>
+        </mat-grid-tile>
+    </ng-container>
+</mat-grid-list>
+
+<mat-paginator [length]="exams.length" [pageSize]="12" [pageSizeOptions]="[6, 12, 48, 96]"></mat-paginator>

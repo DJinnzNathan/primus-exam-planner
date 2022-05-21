@@ -8,7 +8,10 @@ import { HeaderComponent } from './ui/header/header.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { MaterialModule } from './material.module';
 import { AboutComponent } from './pages/about/about.component';
-import { LogoComponent } from './ui/logo/logo.component';
+import { LogoComponent } from './ui/logos/logo/logo.component';
+import { ExamListComponent } from './pages/exam-list/exam-list.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PLogoComponent } from './ui/logos/p-logo/p-logo.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { LogoComponent } from './ui/logo/logo.component';
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    LogoComponent
+    LogoComponent,
+    ExamListComponent,
+    DashboardComponent,
+    PLogoComponent,
   ],
   imports: [
     BrowserModule,
