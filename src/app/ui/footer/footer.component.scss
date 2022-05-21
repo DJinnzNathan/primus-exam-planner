@@ -22,19 +22,10 @@ footer {
         padding: 0;
         white-space: nowrap;
 
-        :last-child {
-          ::after {
-            content: none;
-            margin: 0 0;
-          }
-        }
-
-        :not(:last-child) {
-          // ::after {
-            font-weight: 700;
-            content: "\B7";
-            margin: 0 10px;
-          // }
+        ::after {
+          font-weight: 700;
+          content: "\B7";
+          margin: 0 10px;
         }
 
         a {
