@@ -1,0 +1,7 @@
+svg {
+  filter: sepia(100%) grayscale(100%);
+
+  path:hover {
+    filter: #000;
+  }
+}
