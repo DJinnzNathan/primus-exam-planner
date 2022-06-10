@@ -14,18 +14,13 @@ export class ExamListComponent implements OnInit {
   constructor(private examService: ExamService) { }
 
   ngOnInit() {
-    this.getExams();
+    this.examService.getExams().subscribe(data => this.exams = data);
     console.log(this.exams);
   }
 
   getExams(): void {
     this.examService.getExams()
       .subscribe(exams => this.exams = exams);
-  }
-
-  printDateInfo(date: Date, printTime?: boolean | false): string {
-    var timeInfo = printTime ? ' um ' + date.toLocaleTimeString('de-DE') : '';
-    return date.toLocaleDateString('de-DE') + timeInfo;
   }
 
 }

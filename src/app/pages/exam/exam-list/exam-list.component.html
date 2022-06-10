@@ -1,0 +1,37 @@
+<ng-container class="exams-wrapper">
+    <mat-grid-list cols="4" rowHeight="2:1">
+        <div *ngIf="exams.length == 0">Keine Prüfungen angelegt!</div>
+        <div *ngIf="exams.length > 0">
+            <ng-container #examList *ngFor="let exam of exams"> 
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-subtitle><strong>B1, B2, C1, C1 HS</strong></mat-card-subtitle>
+                        <mat-card-title> {{exam.date | date:'EE. d.M.YY'}} </mat-card-title>
+                        <mat-card-content>
+                            <p>Aufsicht: <strong class="primary">{{exam.examinationOfficer}}</strong></p>
+                        </mat-card-content>
+                        <mat-card-actions align="end">
+                            <button mat-icon-button color="secondary" style="margin-right: 1.5rem;"><mat-icon>edit</mat-icon></button>
+                            <button mat-icon-button [matMenuTriggerFor]="moreOpt" aria-label="Mehr"><mat-icon>more_vert</mat-icon></button>
+                            <mat-menu #moreOpt="matMenu" yPosition="above">
+                                <button color="accent" mat-menu-item>
+                                    <mat-icon>delete</mat-icon>
+                                    <span>Löschen</span>
+                                </button>
+                                <button mat-menu-item>
+                                    <mat-icon>print</mat-icon>
+                                    <span>Drucken</span>
+                                </button>
+                            </mat-menu>
+                        </mat-card-actions>
+                        <mat-card-footer class="print-info" align="end">
+                            <span style="font-size: 0.7rem;">Aktualisiert: {{exam.updatedAt | date:'d.M.yy,  HH:mm'}} Uhr</span>
+                        </mat-card-footer>
+                    </mat-card>
+                </mat-grid-tile>
+            </ng-container>
+        </div>
+    </mat-grid-list>
+    
+    <mat-paginator [length]="exams.length" [pageSize]="12" [pageSizeOptions]="[6, 12, 48, 96]" class="pagination"></mat-paginator>
+</ng-container>

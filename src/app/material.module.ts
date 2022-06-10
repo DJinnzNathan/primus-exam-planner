@@ -93,7 +93,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatTooltipModule,
         MatTableModule,
         MatPaginatorModule,
-        MatCardModule
+        MatCardModule,
+        MatMenuModule
     ],
     providers: [
         MatDatepickerModule,

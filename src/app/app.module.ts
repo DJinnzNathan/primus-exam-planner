@@ -9,9 +9,11 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { MaterialModule } from './material.module';
 import { AboutComponent } from './pages/about/about.component';
 import { LogoComponent } from './ui/logos/logo/logo.component';
-import { ExamListComponent } from './pages/exam-list/exam-list.component';
+import { ExamListComponent } from './pages/exam/exam-list/exam-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PLogoComponent } from './ui/logos/p-logo/p-logo.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RoomListComponent } from './pages/room/room-list/room-list.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,11 @@ import { PLogoComponent } from './ui/logos/p-logo/p-logo.component';
     ExamListComponent,
     DashboardComponent,
     PLogoComponent,
+    RoomListComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule
