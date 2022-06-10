@@ -13,7 +13,6 @@ import { ExamListComponent } from './pages/exam/exam-list/exam-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PLogoComponent } from './ui/logos/p-logo/p-logo.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RoomListComponent } from './pages/room/room-list/room-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { RoomListComponent } from './pages/room/room-list/room-list.component';
     ExamListComponent,
     DashboardComponent,
     PLogoComponent,
-    RoomListComponent,
   ],
   imports: [
     BrowserModule,
