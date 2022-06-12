@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "primus-exam-planner"
+  "defaultProject": "primus-exam-planner",
+  "cli": {
+    "analytics": "ad4b03e0-6240-466c-8777-d3a51ceda2f3"
+  }
 }

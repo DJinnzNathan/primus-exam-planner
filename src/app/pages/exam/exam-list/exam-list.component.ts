@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExamModel } from 'src/app/models/exam.model';
 import { ExamService } from 'src/app/services/exam.service';
 
@@ -13,7 +14,7 @@ export class ExamListComponent implements OnInit {
 
   exams: ExamModel[] = [];
 
-  constructor(private examService: ExamService) { }
+  constructor(private examService: ExamService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.examService.getExams().subscribe(data => this.exams = data);
@@ -23,6 +24,21 @@ export class ExamListComponent implements OnInit {
   getExams(): void {
     this.examService.getExams()
       .subscribe(exams => this.exams = exams);
+  }
+
+  // call get url to delete
+  deleteExam(id: number): void {
+  this.examService.deleteExam(id);    
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, '', {
+      duration: 2000,
+    });
+  }
+
+  comingSoon() {
+    this.openSnackBar("Funktion wird bald hinzugefügt ⏳")
   }
 
 }

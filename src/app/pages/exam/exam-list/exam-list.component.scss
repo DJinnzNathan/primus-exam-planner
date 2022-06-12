@@ -37,6 +37,17 @@ mat-card {
   height: 100%;
 }
 
+.control {
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+  button {
+    margin: 1rem;
+  }
+}
+
 .pagination {
   position: relative;
   bottom: 0;

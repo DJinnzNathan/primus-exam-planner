@@ -13,6 +13,7 @@ import { ExamListComponent } from './pages/exam/exam-list/exam-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PLogoComponent } from './ui/logos/p-logo/p-logo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddExamComponent } from './pages/exam/add-exam/add-exam.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     ExamListComponent,
     DashboardComponent,
     PLogoComponent,
+    AddExamComponent,
   ],
   imports: [
     BrowserModule,

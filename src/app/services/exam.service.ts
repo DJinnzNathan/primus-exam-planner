@@ -39,6 +39,10 @@ export class ExamService {
   //   return of(exam[0]);
   // }
 
+  deleteExam(id: number): void {
+    this.http.delete('http://localhost:8080/api/exams/delete/' + id).subscribe();
+  }
+
   test() {
     let exams = this.http.get<ExamModel[]>('http://localhost:8080/api/exams/');
     console.log("Testmethode:");
