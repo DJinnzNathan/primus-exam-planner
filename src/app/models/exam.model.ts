@@ -1,13 +1,17 @@
 export class ExamModel {
     id: number;
-    examDate: Date;
+    name: string;
+    date: Date;
     createdAt: Date;
-    updatedAt: Date;
+    updatedAt: string;
+    examinationOfficer: string;
 
     constructor() {
         this.id = 0;
-        this.examDate = new Date();
+        this.name = '';
+        this.date = new Date();
         this.createdAt = new Date();
-        this.updatedAt = new Date();
+        this.updatedAt = '';
+        this.examinationOfficer = '';
     }
 }

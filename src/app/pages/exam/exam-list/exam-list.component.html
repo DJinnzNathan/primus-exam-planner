@@ -1,0 +1,67 @@
+<ng-container class="exams-wrapper">
+    <div class="control">
+        <button mat-flat-button color="primary" (click)="comingSoon()">
+            <mat-icon color="secondary">add</mat-icon><span style="text-transform: uppercase; font-weight: 600;">Neue Prüfung</span>
+        </button>
+    </div>
+    <mat-grid-list cols="4" rowHeight="2:1">
+        <div *ngIf="exams.length == 0" style="margin:3em; font-style: italic; text-align: center; color: #a6a6a6;">Keine
+            Prüfungen angelegt!</div>
+        <div *ngIf="exams.length > 0">
+            <ng-container #examList *ngFor="let exam of exams">
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-subtitle><strong>
+                                <ng-container *ngFor="let level of LEVELS">
+                                    <span class="circleText">{{level}}</span>
+                                </ng-container>
+                            </strong></mat-card-subtitle>
+                        <mat-card-title> {{exam.date | date:'EE. d.M.YY'}} </mat-card-title>
+                        <mat-card-content>
+                            <div>
+                                <p>
+                                    <ng-container>
+                                        <mat-icon color="accent">supervisor_account</mat-icon>&nbsp;<strong
+                                            class="primary">{{exam.examinationOfficer}}</strong>
+                                    </ng-container>
+                                </p>
+                            </div>
+                        </mat-card-content>
+                        <mat-card-actions align="end">
+                            <button mat-icon-button color="secondary" aria-label="Ansehen" matTooltip="Ansehen"
+                                style="margin-right: 1.5rem;">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button mat-icon-button [matMenuTriggerFor]="moreOpt" aria-label="Mehr">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #moreOpt="matMenu" yPosition="above">
+                                <button mat-menu-item>
+                                    <mat-icon>edit</mat-icon>
+                                    <span>Bearbeiten</span>
+                                </button>
+                                <button mat-menu-item (onClick)="deleteExam(exam.id)">
+                                    <mat-icon>delete</mat-icon>
+                                    <span>Löschen</span>
+                                </button>
+                                <button mat-menu-item>
+                                    <mat-icon>print</mat-icon>
+                                    <span>Drucken</span>
+                                </button>
+                            </mat-menu>
+                        </mat-card-actions>
+                        <mat-card-footer class="print-info" align="end">
+                            <span style="font-size: 0.7rem;">Aktualisiert: {{exam.updatedAt | date:'d.M.yy, HH:mm'}}
+                                Uhr</span>
+                        </mat-card-footer>
+                    </mat-card>
+                </mat-grid-tile>
+            </ng-container>
+        </div>
+    </mat-grid-list>
+
+    <!-- aktuell deaktiviert -->
+    <mat-paginator *ngIf="(exams.length < 0)" [length]="exams.length" [pageSize]="12"
+        [pageSizeOptions]="[6, 12, 48, 96]" class="pagination">
+    </mat-paginator>
+</ng-container>
